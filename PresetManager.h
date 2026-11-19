@@ -1,7 +1,6 @@
 #pragma once
 
 #include <JuceHeader.h>
-
 #include <vector>
 
 class PresetManager final
@@ -21,6 +20,7 @@ public:
 
     juce::Result loadFactoryPreset (const juce::String& presetName);
     void markCurrentPresetCustom();
+    void captureCurrentAsCustom();
     juce::Result savePreset (const juce::File& file, const juce::String& presetName);
     juce::Result loadPreset (const juce::File& file);
 
@@ -29,5 +29,10 @@ public:
     static constexpr const char* presetFileExtension = ".makopreset";
 
 private:
+    void saveCustomSnapshot();
+    void restoreCustomSnapshot();
+
     ParameterState& parameterState;
+    juce::ValueTree customSnapshot;
+    bool hasCustomSnapshot = false;
 };

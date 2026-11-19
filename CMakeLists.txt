@@ -46,7 +46,7 @@ target_sources(MakosizerX
         GUI/LCDDisplay.cpp
         GUI/LedMeter.cpp
         GUI/MakosizerXLookAndFeel.cpp
-        PresetManager.cpp
+        Source/PresetManager.cpp
         Source/PluginEditor.cpp
         Source/PluginProcessor.cpp
 )
@@ -57,7 +57,6 @@ target_compile_definitions(MakosizerX
     PUBLIC
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
-        JUCE_VST3_CAN_REPLACE_VST2=0
 )
 
 target_link_libraries(MakosizerX
